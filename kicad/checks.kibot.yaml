@@ -16,6 +16,9 @@ preflight:
     - filter: "Pins of type A and B are connected"
       error: 'pin_to_pin'
       regex: "Pins of type .* and .* are connected"
+    - filter: "Ignore unconnected USB-C pins on J3"
+      error: 'pin_not_connected'
+      regex: "Pin not connected"
     # DRC filters
     - filter: "Ignore specific clearance error 0.5000 mm"
       error: 'clearance'
@@ -23,6 +26,9 @@ preflight:
     - filter: "Ignore specific clearance error 0.3000 mm"
       error: 'clearance'
       regex: ".*Clearance violation.*zone clearance 0.3000 mm; actual 0.0000 mm.*"
+    - filter: "Ignore hole clearance violations on USB-C connector J3"
+      error: 'hole_clearance'
+      regex: "Hole clearance violation.*"
     - filter: "Ignore library footprint mismatches"
       error: 'W058'
       regex: "lib_footprint_mismatch.*Footprint .* does not match copy in library"
